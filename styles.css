@@ -132,7 +132,7 @@ main>section,main>footer{position:relative;z-index:1}
 /* Secciones sobre fondo blanco (fecha y confirmación): el centro es blanco y los bordes llevan la textura de la imagen */
 .blanco{--ht:clamp(90px,26vw,150px);--ink:#0f2757;--soft:#17356f;--silver:#1b3f86;--silver2:#12295a;--flor:#8fb4ee;--bg1:#ffffff;
   --card:rgba(255,255,255,.38);--line:rgba(15,39,87,.45);--btn-bg:linear-gradient(135deg,#4a7fc8,#1f4a96);--btn-ink:#ffffff;
-  position:relative;color:var(--ink);margin:calc(var(--ht) + 28px) calc(50% - 50vw);padding:46px calc(50vw - 50%)}
+  position:relative;color:var(--ink);margin:calc(var(--ht) + 6px) calc(50% - 50vw);padding:46px calc(50vw - 50%)}
 .blanco::before{content:"";position:absolute;top:calc(-1 * var(--ht));bottom:calc(-1 * var(--ht));left:0;right:0;z-index:-1;opacity:.6;pointer-events:none;
   background:url(imagenes/blanco-sup.webp) top center/100% var(--ht) no-repeat,url(imagenes/blanco-inf.webp) bottom center/100% var(--ht) no-repeat,linear-gradient(#fff,#fff) center/100% calc(100% - 2 * var(--ht) + 6px) no-repeat}
 .blanco .silver{background:linear-gradient(100deg,var(--silver2),#1d4690 45%,var(--silver2));-webkit-background-clip:text;background-clip:text}
@@ -165,3 +165,17 @@ main>section,main>footer{position:relative;z-index:1}
 .flor-intro{width:min(42vw,230px)}
 .intro>.env{width:min(86vw,420px)}
 .intro>.cap{margin-top:-48px}
+
+/* Iconos (calendario, ubicación, dinero) con los mismos efectos del resto */
+.ico{position:relative;display:block;color:#fff}
+.ico svg{position:relative;display:block;width:100%;height:100%;overflow:visible;animation:flotar-ico 5s ease-in-out infinite}
+.ico::before{content:"";position:absolute;inset:-28%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.55),transparent 72%);animation:respira 4.5s ease-in-out infinite;pointer-events:none}
+.ico-cal{width:92px;height:92px;margin:0 auto 22px;color:#1d4690}
+.ico-cal::before{background:radial-gradient(closest-side,rgba(255,255,255,.9),transparent 72%)}
+.ico-sm{flex:none;width:46px;height:46px}
+.titulo{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 .55em}
+.titulo h2{margin:0}
+.js-rev .ico-cal.rev{transform:scale(.45) rotate(-14deg);transition:opacity 1.2s ease var(--d,0s),transform 1.6s cubic-bezier(.3,1.35,.4,1) var(--d,0s)}
+.js-rev .ico-cal.rev.in{transform:none}
+@keyframes flotar-ico{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.ico svg,.ico::before{animation:none!important}}
