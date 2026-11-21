@@ -1,0 +1,50 @@
+Invitación de 15 años - Thaliana
+
+ARCHIVOS
+- index.html : estructura y textos (sobre inicial, fecha, lugar, vestimenta, lluvia de sobres, confirmación, flores en SVG y reproductor)
+- styles.css : colores (variables en :root), tipografías, espacios, zoom del sobre, destellos y reproductor
+- script.js  : datos editables (bloque CFG al inicio), invitado personalizado, cuenta regresiva, zoom y desvanecido, música y enlaces de Google Maps y WhatsApp
+
+CÓMO USARLA EN VISUAL STUDIO CODE
+1. Abre la carpeta con Archivo > Abrir carpeta.
+2. Instala la extensión "Live Server" y haz clic en "Go Live" (o abre index.html en el navegador).
+
+PRIMERA PANTALLA Y NOMBRE DEL INVITADO
+- La primera pantalla es igual para todos: "Mis 15 años" y el mensaje de tocar el sobre.
+- Opcional: si el enlace trae un invitado (index.html?invitado=Familia%20Montes%20Padilla o index.html#familia-montes-padilla), el nombre se usa solo en el mensaje de WhatsApp. Los nombres con tilde se definen en CFG.invitados.
+
+IMAGEN DE LA QUINCEAÑERA
+- imagenes/quinceanera.webp va al final de la invitación. Para cambiarla, reemplaza ese archivo (mismo nombre) o cambia la ruta en index.html.
+
+MÚSICA
+- La canción está en musica/cancion.mp3 (se reduce a 80 kbps para que cargue rápido en celulares) y se configura en CFG.musica.
+- Para cambiarla: reemplaza ese archivo (o usa otro nombre sin espacios ni tildes y actualiza CFG.musica). Con CFG.musica vacío suena una melodía integrada.
+- La música empieza al tocar el sobre (los navegadores no permiten sonido automático sin un toque) y se repite en bucle.
+- Si el archivo no carga, suena la melodía integrada.
+- Usa solo canciones de las que tengas derechos o permiso de uso.
+
+MAPA
+- CFG.mapa guarda el enlace de Google Maps del salón. Si lo dejas vacío, el botón busca por nombre y dirección.
+
+ANIMACIONES Y BOTONES
+- Al bajar, cada bloque aparece poco a poco y las guirnaldas de flores "florecen". Si el teléfono tiene activado reducir movimiento, todo se muestra de una vez.
+- El botón de WhatsApp muestra un check y destellos al tocarlo. Solo indica que se tocó el botón (la página no puede saber si el mensaje se envió) y lo recuerda en ese teléfono.
+- "Agrega la fecha a tu calendario": botón de Google Calendar que abre el evento ya llenado (título, fecha, salón, ubicación y vestimenta). CFG.duracionHoras define la duración.
+- La fecha lleva la zona horaria (CFG.fecha con -05:00 y CFG.zona), así que se ve igual para cualquier invitado.
+
+MINIATURA AL COMPARTIR EL ENLACE
+- imagenes/miniatura.jpg (1200x630) es la imagen que aparece al compartir el enlace en WhatsApp y redes, con el nombre de Thaliana.
+- En index.html (etiquetas og:image) la ruta es relativa. Cuando publiques la invitación en tu sitio, cámbiala por la dirección completa, por ejemplo https://tu-sitio.com/imagenes/miniatura.jpg, porque WhatsApp y las redes solo leen direcciones completas.
+- Si cambias la miniatura, WhatsApp puede seguir mostrando la anterior por un tiempo (guarda una copia en caché).
+
+CÓMO PUBLICARLA PARA ENVIAR EL ENLACE (Netlify, gratis)
+1. Descomprime este zip: queda la carpeta "invitacion-xv" (con index.html, styles.css, script.js y las carpetas imagenes y musica).
+2. Entra a https://app.netlify.com/drop (te pide crear una cuenta gratuita) y arrastra la carpeta completa.
+3. Netlify te da una dirección como https://nombre-aleatorio.netlify.app. En "Site configuration > Change site name" puedes poner algo como https://thaliana15.netlify.app.
+4. Para que la miniatura aparezca al compartir el enlace: en index.html cambia content="imagenes/miniatura.jpg" por la dirección completa, por ejemplo content="https://thaliana15.netlify.app/imagenes/miniatura.jpg", y vuelve a arrastrar la carpeta.
+5. Enlace para cada familia (opcional, solo cambia el mensaje de WhatsApp): https://thaliana15.netlify.app/#familia-gomez
+- No uses la exportación "HTML" del panel de Claude para publicarla: esa copia usa imágenes que solo existen dentro de Claude y no se verían.
+
+NOTAS
+- Las tipografías se cargan desde Google Fonts, por lo que se necesita internet para verlas igual.
+- Para el mensaje de WhatsApp, el texto está al final de la sección "Textos y enlaces" de script.js (variable "mensaje").
