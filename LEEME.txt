@@ -29,7 +29,7 @@ MAPA
 ANIMACIONES Y BOTONES
 - Al bajar, cada bloque aparece poco a poco y las guirnaldas de flores "florecen". Si el teléfono tiene activado reducir movimiento, todo se muestra de una vez.
 - El botón de WhatsApp muestra un check y destellos al tocarlo. Solo indica que se tocó el botón (la página no puede saber si el mensaje se envió) y lo recuerda en ese teléfono.
-- "Agrega la fecha a tu calendario": botón de Google Calendar que abre el evento ya llenado (título, fecha, salón, ubicación y vestimenta). CFG.duracionHoras define la duración.
+- "Agrega la fecha a tu calendario": botón de Google Calendar que abre el evento ya llenado (título, fecha, salón, ubicación y vestimenta). CFG.fecha es el inicio y CFG.fin la hora de cierre del evento.
 - La fecha lleva la zona horaria (CFG.fecha con -05:00 y CFG.zona), así que se ve igual para cualquier invitado.
 
 MINIATURA AL COMPARTIR EL ENLACE

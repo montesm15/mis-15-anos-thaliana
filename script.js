@@ -1,9 +1,9 @@
 /* ===== Edita solo estos datos ===== */
 var CFG = {
   nombre: "Thaliana",
-  fecha: "2026-12-19T20:00:00-05:00",      // año-mes-díaTHH:MM con la zona del evento (Colombia = -05:00)
+  fecha: "2026-12-19T19:30:00-05:00",      // año-mes-díaTHH:MM con la zona del evento (Colombia = -05:00)
   zona: "America/Bogota",                  // zona horaria con la que se muestran fecha y hora
-  duracionHoras: 5,                        // duración del evento (para el calendario)
+  fin: "2026-12-20T02:00:00-05:00",         // hora de cierre del evento (para el calendario)
   confirmarAntes: "1 de diciembre",
   lugar: "Salón de Eventos Bellavista",
   direccion: "Cl. 16, Sincelejo, Sucre",     // texto que se muestra bajo el nombre del salón
@@ -99,7 +99,7 @@ tick(); setInterval(tick, 1000);
 
 /* ---------- Agregar al calendario ---------- */
 (function(){
-  var ini = f, fin = new Date(f.getTime() + CFG.duracionHoras * 3600000);
+  var ini = f, fin = new Date(CFG.fin);
   function utc(d){ return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); }
   var titulo = "15 años de " + CFG.nombre;
   var lugar = CFG.lugar + ", " + CFG.direccion;
